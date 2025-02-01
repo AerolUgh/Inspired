@@ -96,8 +96,11 @@ namespace ConsoleApp1
                 int years = (dateNow.Year - dateEntered.Year);
                 TimeSpan hour = dateNow - dateEntered;
                 TimeSpan minute = dateNow - dateEntered;
+                TimeSpan second = dateNow - dateEntered;
                 double hours = Math.Round(hour.TotalHours, 2);
                 double minutes = Math.Round(minute.TotalMinutes, 2);
+                double seconds = Math.Round(second.TotalSeconds, 2);
+                
             
                 if (dateNow.Month < dateEntered.Month || (dateNow.Month == dateEntered.Month && dateNow.Day < dateEntered.Day))
                 {
@@ -109,6 +112,7 @@ namespace ConsoleApp1
                 Console.WriteLine($"Days : {Math.Abs(days)}");
                 Console.WriteLine($"Hours : {Math.Abs(hours)}");
                 Console.WriteLine($"Minutes : {Math.Abs(minutes)}");
+                Console.WriteLine($"Seconds : {Math.Abs(seconds)}");
             }
 
         public static string Letter()
