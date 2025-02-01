@@ -85,7 +85,7 @@ namespace ConsoleApp1
         public static void TrackDate()
         {
             string enteredDate = "";
-            Console.Write("Enter Date (dd/MM/yyyy): ");
+            Console.Write("Enter Date (MM/dd/yyyy): ");
             enteredDate = Console.ReadLine();
 
             DateTime dateNow = DateTime.Now;
