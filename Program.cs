@@ -84,29 +84,32 @@ namespace ConsoleApp1
 
         public static void TrackDate()
         {
-            string enteredDate = "";
-            Console.Write("Enter Date (MM/dd/yyyy): ");
-            enteredDate = Console.ReadLine();
-
-            DateTime dateNow = DateTime.Now;
-            DateTime dateEntered = Convert.ToDateTime(enteredDate);
-
-            int days = (dateNow - dateEntered).Days;
-            int months = (dateNow.Year - dateEntered.Year) * 12 + (dateNow.Month - dateEntered.Month);
-            int years = (dateNow.Year - dateEntered.Year);
-            int hours = dateNow.Hour - dateEntered.Hour;
-
-            if (dateNow.Month < dateEntered.Month || (dateNow.Month == dateEntered.Month && dateNow.Day < dateEntered.Day))
-            {
-                years--; // Subtract 1 year if the anniversary hasn't passed
+                string enteredDate = "";
+                Console.Write("Enter Date (MM/dd/yyyy): ");
+                enteredDate = Console.ReadLine();
+            
+                DateTime dateNow = DateTime.Now;
+                DateTime dateEntered = Convert.ToDateTime(enteredDate);
+            
+                int days = (dateNow - dateEntered).Days;
+                int months = (dateNow.Year - dateEntered.Year) * 12 + (dateNow.Month - dateEntered.Month);
+                int years = (dateNow.Year - dateEntered.Year);
+                TimeSpan hour = dateNow - dateEntered;
+                TimeSpan minute = dateNow - dateEntered;
+                double hours = Math.Round(hour.TotalHours, 2);
+                double minutes = Math.Round(minute.TotalMinutes, 2);
+            
+                if (dateNow.Month < dateEntered.Month || (dateNow.Month == dateEntered.Month && dateNow.Day < dateEntered.Day))
+                {
+                    years--; // Subtract 1 year if the anniversary hasn't passed
+                }
+            
+                Console.WriteLine($"Years : {Math.Abs(years)}");
+                Console.WriteLine($"Months : {Math.Abs(months)}");
+                Console.WriteLine($"Days : {Math.Abs(days)}");
+                Console.WriteLine($"Hours : {Math.Abs(hours)}");
+                Console.WriteLine($"Minutes : {Math.Abs(minutes)}");
             }
-
-            Console.WriteLine($"Years : {Math.Abs(years)}");
-            Console.WriteLine($"Months : {Math.Abs(months)}");
-            Console.WriteLine($"Days : {Math.Abs(days)}");
-            Console.WriteLine($"Hours : {Math.Abs(hours)}");
-
-        }
 
         public static string Letter()
         {
